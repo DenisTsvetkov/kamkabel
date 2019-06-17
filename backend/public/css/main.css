@@ -1,0 +1,270 @@
+body {
+  background: #E3E9EE; }
+
+header {
+  background: #fff; }
+
+.borderless {
+  border: none; }
+
+.center {
+  margin-top: 100px; }
+
+.no-header-padding {
+  padding-left: 0;
+  padding-right: 0; }
+
+.liked {
+  color: #D71A44; }
+
+.comment-exist {
+  color: #1E94D2; }
+
+.main {
+  padding-top: 10px; }
+
+.transparent-bg {
+  background: rgba(255, 255, 255, 0.8); }
+
+.profile-card {
+  padding-top: 10px;
+  background-color: #fff;
+  margin-bottom: 10px; }
+  .profile-card-name {
+    display: block;
+    font-weight: 700; }
+  .profile-card-username {
+    color: #B7B7B7; }
+  .profile-card-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: contain;
+    margin-bottom: 10px;
+    overflow: hidden; }
+    .profile-card-avatar > img {
+      height: 100%; }
+  .profile-card-avatar-mini {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-size: contain; }
+    .profile-card-avatar-mini > img {
+      height: 100%; }
+
+.profile-stats > .list-group-item {
+  color: #3C3C3C; }
+  .profile-stats > .list-group-item > a {
+    color: #3C3C3C; }
+    .profile-stats > .list-group-item > a:hover {
+      text-decoration: none; }
+  .profile-stats > .list-group-item:hover {
+    text-decoration: none;
+    cursor: pointer; }
+
+.post {
+  padding: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 3px; }
+  .post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    float: left; }
+    .post-avatar > img {
+      height: 100%; }
+  .post-name {
+    color: #3C3C3C;
+    font-weight: 700; }
+  .post-username {
+    color: #B7B7B7; }
+  .post-created-date {
+    color: #B7B7B7;
+    margin-left: 15px; }
+  .post-content {
+    margin: 7px 10px 40px 63px; }
+  .post-actions-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px; }
+  .post-action-list {
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    color: #B7B7B7;
+    font-size: 16px; }
+    .post-action-list > a {
+      margin-right: 15px; }
+      .post-action-list > a.post-comments > i:hover {
+        color: #1E94D2;
+        cursor: pointer; }
+      .post-action-list > a.post-likes > i:hover {
+        color: #D71A44;
+        cursor: pointer; }
+    .post-action-list-value {
+      margin-left: 5px; }
+
+#gridSystemModal .post {
+  padding: 0 !important; }
+
+.posts-not-found {
+  text-align: center;
+  color: #9A9A9A; }
+  .posts-not-found > p {
+    padding: 30px; }
+
+.comments-not-found {
+  text-align: center;
+  color: #9A9A9A; }
+  .comments-not-found > p {
+    padding: 15px; }
+
+.sign-up-page {
+  background-image: url("../img/sign-up-bg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 56px);
+  position: relative; }
+
+.sign-up-page::before {
+  width: 100%;
+  height: 100vh;
+  content: ' ';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7); }
+
+.sign-up {
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px; }
+
+.users {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .users > li {
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .users > li > a {
+      display: flex; }
+      .users > li > a:hover {
+        text-decoration: none; }
+      .users > li > a > img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        background-size: contain;
+        margin-right: 15px; }
+      .users > li > a > .user-info {
+        display: flex;
+        flex-direction: column; }
+        .users > li > a > .user-info > .user-real-name {
+          font-weight: 700;
+          color: #3C3C3C; }
+        .users > li > a > .user-info > .username {
+          color: #B7B7B7; }
+    .users > li > .subscribe-btn {
+      display: inline-block;
+      width: 200px;
+      text-align: center; }
+
+.post-comments > h6 {
+  margin-bottom: 30px; }
+
+.comment {
+  font-size: 14px;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 3px; }
+  .comment-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    float: left; }
+    .comment-avatar > img {
+      height: 100%; }
+  .comment-name {
+    color: #3C3C3C;
+    font-weight: 700; }
+  .comment-username {
+    color: #B7B7B7; }
+  .comment-created-date {
+    color: #B7B7B7;
+    margin-left: 15px; }
+  .comment-content {
+    margin: 7px 10px 40px 50px; }
+  .comment-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+    color: #E0E0E0; }
+    .comment-delete:hover {
+      cursor: pointer;
+      color: #595959; }
+
+.poll > #poll-title {
+  margin: 10px 0; }
+
+.poll-option {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .poll-option > li {
+    margin-bottom: 5px; }
+    .poll-option > li > input {
+      width: 100%;
+      padding: 0 7px;
+      border-radius: 3px;
+      border: 1px solid #A7A7A7; }
+  .poll-option-title {
+    margin-right: 20px;
+    width: 100px; }
+  .poll-option-remove {
+    margin-left: 10px; }
+
+.post-poll {
+  margin: 0 0 40px;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  border-radius: 5px;
+  color: #3C3C3C; }
+  .post-poll-title {
+    text-align: center;
+    margin: 10px 0 30px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3C3C3C; }
+  .post-poll-option {
+    margin: 0;
+    list-style: none; }
+    .post-poll-option > li {
+      margin-top: 7px; }
+      .post-poll-option > li .title {
+        font-size: 14px;
+        font-weight: 700; }
+      .post-poll-option > li .progress {
+        height: 25px;
+        border: 1px solid #B7B7B7;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        transition: all .3s; }
+        .post-poll-option > li .progress:hover {
+          cursor: pointer;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+        .post-poll-option > li .progress > .progress-bar.bg-blue {
+          background-color: #235ED8; }
+        .post-poll-option > li .progress > .progress-bar.bg-blue-light {
+          background-color: #4860E1; }

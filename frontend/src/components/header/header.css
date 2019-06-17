@@ -1,0 +1,87 @@
+.header{
+    height: 45px;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 40;
+}
+
+.header-content{ 
+    display: flex;
+    align-items: center;
+    height: 45px;
+    margin: 0 15px;
+}
+
+.profile{
+    display: flex;
+    margin-left: auto;
+    position: relative;
+}
+
+.role-info{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.role-info-photo{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.role-info-show-more{
+    margin-left: 10px;
+    padding-top: 3px;
+}
+
+.hidden-menu{
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    border: 1px solid #cccccc;
+    background: #fff;
+}
+
+/* .alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+} */
+
+/* .hidden-menu.active{
+    display: block;
+} */
+
+.hidden-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden-menu ul li{
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.hidden-menu li:hover{
+    background-color: #cccccc;
+    cursor: pointer;
+}

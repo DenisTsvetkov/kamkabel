@@ -1,0 +1,6 @@
+#modal-send-message form textarea{
+    min-width: 100%;
+    min-height: 100px;
+    padding: 7px 15px;
+    font-size: 14px;
+}

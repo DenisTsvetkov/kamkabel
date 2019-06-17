@@ -1,0 +1,85 @@
+.sidebar {
+    width: 255px;
+    padding: 0 15px;
+    height: 100vh;
+    background: #fff;
+    z-index: 100;
+}
+
+.sidebar-top{
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logotype{
+    width: 150px;
+}
+
+.bot-info{
+    background: #FAFAFA;
+    padding: 13px;
+    margin: 0 -15px;
+}
+
+.bot-info-choose{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bot-info-messenger{
+    margin: 0;
+    font-size: 12px;
+    color: #7A7A7A;
+}
+
+.bot-info-name{
+    font-weight: 700;
+}
+
+.bot-info-name > i {
+    color: #969595;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.btn-add-bot{
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    background: #F5F5F5;
+    color: #DBDBDB;
+    font-size: 11px;
+    padding: 7px 9px;
+}
+
+.nav{
+    margin-top: 27px;
+    color: #393939;
+}
+
+.nav > ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav > ul > a{
+    text-decoration: none;
+}
+
+.nav > ul li{
+    margin-bottom: 20px;
+    color: #393939;
+}
+
+.nav > ul li > i {
+    margin-right: 10px;
+}
+
+.border-top{
+    border-top: 1px solid #EBEBEB;
+    padding-top: 10px;
+}
