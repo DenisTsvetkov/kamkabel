@@ -1,9 +1,9 @@
-// import UserList from './user-list';
-// import UserItem from './user-item';
 import Modal from './modal-send-message';
+import AlertBootstrap from './alert';
+import Form from './form';
 
 export {
-    // UserList,
-    // UserItem,
-    Modal
+    Modal,
+    AlertBootstrap as Alert,
+    Form
 }

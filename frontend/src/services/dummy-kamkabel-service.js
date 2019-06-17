@@ -4,21 +4,21 @@ export default class KamkabelApiService {
       {
         id: 1,
         name: 'Denis',
-        surname: 'Tsvetkov',
+        surname: 'Tsvetkov1',
         username: 'cvetkoff',
         phone: '79125998779'
       },
       {
-        id: 1,
+        id: 2,
         name: 'Denis',
-        surname: 'Tsvetkov',
+        surname: 'Tsvetkov2',
         username: 'cvetkoff',
         phone: '79125998779'
       },
       {
-        id: 1,
+        id: 3,
         name: 'Denis',
-        surname: 'Tsvetkov',
+        surname: 'Tsvetkov3',
         username: 'cvetkoff',
         phone: '79125998779'
       }
@@ -31,6 +31,22 @@ export default class KamkabelApiService {
   
     getUser = async (id) => {
       return await this.getResource(`/users/${id}`);
+    }
+
+    sendMessage = async (userTo, msg) => {
+      return `Получатель письма ${userTo}. Текст сообщения ${msg}`;
+    }
+
+    getServerDataExist = () => {
+      return true;
+    }
+
+    createUser = async (user) => {
+      return `Пришли данные юзера `+user;
+    }
+
+    createBot = async (bot) => {
+      return `Пришли данные по боту `+bot;
     }
   
   }

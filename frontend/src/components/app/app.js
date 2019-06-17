@@ -1,6 +1,8 @@
-import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
+// import { Form, Button } from 'react-bootstrap'; 
 
 import Header from '../header';
 import Sidebar from '../sidebar';
@@ -10,81 +12,80 @@ import {
   LoginPage
 } from '../pages';
 
-import { Modal } from '../kb-components';
+import { Modal, Alert, Form } from '../kb-components';
+
+import { compose } from '../../utils';
+import { withKamkabelService } from '../hoc-helpers';
 
 import './app.css';
 import './animate.css';
 
-// export default class App extends Component {
-
-//   render() {
-//     return (
-//       // <ErrorBoundry>
-//       //   <KamkabelServiceProvider value={this.state.kamkabelService}>
-//       //     <Router>
-//               <div className="messenger-managment-app">
-                
-//                 <Sidebar />
-
-//                 <div className="content">
-//                   <div className="container-fluid">
-//                     <div className="row">
-//                       <div className="col-12">
-//                         <Header />
-//                       </div>
-                      
-//                       <div className="col-12">
-
-//                         <Switch>
-//                           <Route path="/"
-//                                   render={() => <h2>Добро пожаловать в систему управления ботом мессенджера</h2>}
-//                                   exact />
-//                           <Route path="/users" component={ UsersPage } />
-//                           <Route path="/login" component={ LoginPage } />
-//                           <Route render={() => <h2>Page not found</h2>} />
-//                         </Switch>
-                        
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//       //     </Router>
-//       //   </KamkabelServiceProvider>
-//       // </ErrorBoundry>
-//     );
-//   }
-// }
-
-
-const App = ({kamkabelService}) => {
-
+const App = (props) => {
+  //kamkabelService = this.props.kamkabelService;
+  console.log('Ухух', props)
+  if(props.kamkabelService.getServerDataExist()){
   return (
-    <div className="messenger-managment-app">        
-      <Sidebar />
-      <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12">
-              <Header />
-            </div>
-            <div className="col-12">
-              <Modal />
-              <Switch>
-                <Route path="/"
-                        render={() => <h2>Добро пожаловать в систему управления ботом мессенджера</h2>}
-                        exact />
-                <Route path="/users" component={ UsersPage } />
-                <Route path="/login" component={ LoginPage } />
-                <Route render={() => <h2>Page not found</h2>} />
-              </Switch>
-              
+      <div className="messenger-managment-app">        
+        <Sidebar />
+        <div className="content">
+          <div className="container-fluid">
+          <Alert />
+            <div className="row">
+              <div className="col-12">
+                <Header />
+              </div>
+              <div className="col-12">
+                <Modal />
+                
+                <Switch>
+                  <Route path="/"
+                          render={() => <h2>Добро пожаловать в систему управления ботом мессенджера</h2>}
+                          exact />
+                  <Route path="/users" component={ UsersPage } />
+                  <Route path="/login" component={ LoginPage } />
+                  <Route render={() => <h2>Page not found</h2>} />
+                </Switch>
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+  else{
+    return(
+      <div className="messenger-managment-app">        
+        <div className="content">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <Header />
+              </div>
+              <div className="col-12 m-auto text-center">
+                <h2>Произведем первоначальную настройку</h2>
+              </div>
+              <div className="col-4 m-auto">
+                <Form />
+                {/* <Switch>
+                  <Route path="/"
+                          render={() => <h2>Добро пожаловать в систему управления ботом мессенджера</h2>}
+                          exact />
+                  <Route path="/users" component={ UsersPage } />
+                  <Route path="/login" component={ LoginPage } />
+                  <Route render={() => <h2>Page not found</h2>} />
+                </Switch> */}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+
+export default compose(
+  withKamkabelService()
+)(App);

@@ -5,7 +5,7 @@ import UserItem from '../user-list-item';
 import Spinner from '../spinner';
 
 import { withKamkabelService } from '../hoc-helpers';
-import { fetchUsers, showModalToSendMessage } from '../../actions';
+import { fetchUsers, showModal } from '../../actions';
 import { compose } from '../../utils';
 
 
@@ -49,7 +49,7 @@ const mapStateToProps = ({ userList:{ users, loading } }) => {
 const mapDispatchToProps = (dispatch, { kamkabelService }) => {
     return {
         fetchUsers: fetchUsers(kamkabelService, dispatch),
-        onShowModalWindow: (id) => dispatch(showModalToSendMessage(id))
+        onShowModalWindow: (id) => dispatch(showModal(id))
     }
 }
 
