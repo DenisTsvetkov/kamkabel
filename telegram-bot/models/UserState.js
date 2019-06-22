@@ -1,11 +1,15 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Avatar extends Sequelize.Model {
+module.exports = class State extends Sequelize.Model {
 
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                avatar: DataTypes.STRING
+                chatId: {
+                    type: DataTypes.INTEGER,
+                    unique: true
+                },
+                step: DataTypes.INTEGER
             },
             {
                 sequelize
@@ -15,5 +19,6 @@ module.exports = class Avatar extends Sequelize.Model {
 
     static associate(models) {
         //this.hasOne(models.Task);
+        this.hasOne(models.Answer);
     }
 }

@@ -1,15 +1,12 @@
 const Sequelize = require("sequelize");
 
-module.exports = class User extends Sequelize.Model {
+module.exports = class Administrator extends Sequelize.Model {
     
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                chatId: DataTypes.INTEGER,
-                username: { 
-                    type: DataTypes.STRING,
-                    unique: true
-                }
+                name: DataTypes.STRING,
+                surname: DataTypes.STRING
             },
             {
                 sequelize
@@ -19,6 +16,6 @@ module.exports = class User extends Sequelize.Model {
     }
 
     static associate(models) {
-        this.hasOne(models.UserAvatar);
+        this.hasOne(models.Avatar);
     }
 }

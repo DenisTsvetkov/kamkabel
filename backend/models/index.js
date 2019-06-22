@@ -1,36 +1,27 @@
-'use strict';
+const Sequelize = require('sequelize');
+const sequelize = require('../config/database');
 
-var fs        = require('fs');
-var path      = require('path');
-var Sequelize = require('sequelize');
-var basename  = path.basename(__filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.json')[env];
-var db        = {};
+const Administrator = require('./Administrator');
+const Avatar = require('./Avatar');
+const User = require('./User');
+const UserAvatar = require('./UserAvatar');
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+//sequelize.sync({force: true})
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    var model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+const models = {
+    Administrator: Administrator.init(sequelize, Sequelize),
+    Avatar: Avatar.init(sequelize, Sequelize),
+    User: User.init(sequelize, Sequelize),
+    UserAvatar: UserAvatar.init(sequelize, Sequelize)
+};
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+Object.values(models)
+  .filter(model => typeof model.associate === "function")
+  .forEach(model => model.associate(models));
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+const db = {
+    ...models,
+    sequelize
+};
 
 module.exports = db;

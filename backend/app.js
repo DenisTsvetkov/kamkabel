@@ -2,12 +2,15 @@ require('dotenv').config()
 
 const express    = require('express');
 const bodyParser = require('body-parser');
-const expressHbs = require("express-handlebars");
-const favicon = require('express-favicon');
-const jwt = require('jsonwebtoken');
-const db = require('./config/database');
 const cors = require('cors');
 
+// import express from 'express';
+// import bodyParser from 'body-parser';
+// import cors from 'cors';
+
+// import { AdministratorRouter, UserRouter } from './routes';
+
+const { AdministratorRoute, UserRoute } = require('./routes'); 
 
 const app = express();
 
@@ -17,7 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Router
-app.use('/users', require('./routes/User'));
+app.use('/users', UserRoute);
+app.use('/administrators', AdministratorRoute);
 
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));

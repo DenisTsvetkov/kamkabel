@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Avatar extends Sequelize.Model {
+module.exports = class Answer extends Sequelize.Model {
 
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                avatar: DataTypes.STRING
+                UserStateId: DataTypes.INTEGER,
+                answer: DataTypes.STRING
             },
             {
                 sequelize

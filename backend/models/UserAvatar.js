@@ -1,14 +1,14 @@
 const Sequelize = require("sequelize");
 
-module.exports = class User extends Sequelize.Model {
+module.exports = class UserAvatar extends Sequelize.Model {
     
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                chatId: DataTypes.INTEGER,
-                username: { 
+                UserId: DataTypes.INTEGER,
+                avatar: {
                     type: DataTypes.STRING,
-                    unique: true
+
                 }
             },
             {
@@ -19,6 +19,6 @@ module.exports = class User extends Sequelize.Model {
     }
 
     static associate(models) {
-        this.hasOne(models.UserAvatar);
+        this.belongsTo(models.User);
     }
 }
