@@ -22,7 +22,7 @@ import './animate.css';
 
 const App = (props) => {
   //kamkabelService = this.props.kamkabelService;
-  console.log('Ухух', props)
+
   if(props.kamkabelService.getServerDataExist()){
   return (
       <div className="messenger-managment-app">        
@@ -34,7 +34,7 @@ const App = (props) => {
               <div className="col-12">
                 <Header />
               </div>
-              <div className="col-12">
+              
                 <Modal />
                 
                 <Switch>
@@ -46,7 +46,7 @@ const App = (props) => {
                   <Route render={() => <h2>Page not found</h2>} />
                 </Switch>
                 
-              </div>
+              
             </div>
           </div>
         </div>

@@ -26,15 +26,21 @@ export default class KamkabelApiService {
   
   
     getAllUsers = async () => {
-      return await this.getResource(`/users/`);
+      //return await this.getResource(`/users/`);
+      const result = await this.getResource(`/users/`);
+      return result.result.users
     }
   
     getUser = async (id) => {
       return await this.getResource(`/users/${id}`);
     }
 
-    sendMessageToUser = async (userId, message) => {
-      return await this.postResource(`/users/:${userId}/send-message`, { message })
+    sendMessageToUser = async (AdministratorId, messages) => {
+      return await this.postResource(`/users/send-message`, { AdministratorId, messages })
+    }
+
+    getServerDataExist = () => {
+      return true;
     }
   
   }

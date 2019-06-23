@@ -1,7 +1,13 @@
 .notification{
+    z-index: 1050;
     position: absolute;
     bottom: 50px;
     right: 30px;
     width: 350px;
     font-size: 14px;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
+}
+
+.notification .alert{
+    margin-bottom: 0;
 }

@@ -1,4 +1,5 @@
 .sidebar {
+    position: fixed;
     width: 255px;
     padding: 0 15px;
     height: 100vh;

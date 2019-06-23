@@ -11,7 +11,6 @@ import { withKamkabelService } from '../../hoc-helpers';
 import './modal-send-message.css';
 
 const ModalBootstrap = ({ show, recipient, onCloseModal, onSubmitForm, result }) => {
-        console.log(onSubmitForm);
         const { name, surname } = recipient;
         return (
             <Modal id="modal-send-message" show={show} onHide={ onCloseModal }>
@@ -19,7 +18,7 @@ const ModalBootstrap = ({ show, recipient, onCloseModal, onSubmitForm, result })
                 <Modal.Title>Отправка сообщения { `${name} ${surname}` }</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <form onSubmit={ onSubmitForm }>
+                <form onSubmit={ (e) => onSubmitForm(e, recipient) }>
                     <textarea name="message" placeholder="Введите сообщение">
 
                     </textarea>
@@ -56,7 +55,7 @@ const mapStateToProps = ({ modalSendMessage: { show, recipient, result } }) => {
 const mapDispatchToProps = (dispatch, { kamkabelService }) => {
     return {
         onCloseModal: () => dispatch(closeModal()),
-        onSubmitForm: (e) => dispatch(sendMessage(e, kamkabelService))
+        onSubmitForm: (e, recipient) => dispatch(sendMessage(e, recipient, kamkabelService))
     }
   }
 

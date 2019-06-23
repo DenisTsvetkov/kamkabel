@@ -1,4 +1,0 @@
-const MAIN_MENU = 1;
-const SEND_MESSAGE_TO_ADMINISTRATOR = 2;
-const CREATE_PROFILE = 3;
-const CREATE_

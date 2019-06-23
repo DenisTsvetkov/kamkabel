@@ -1,4 +1,4 @@
-const { User, UserAvatar } = require('../models');
+const { User, UserAvatar, Profile } = require('../models');
 
 exports.findAll = (req, res) => {
     User.findAll({
@@ -7,6 +7,9 @@ exports.findAll = (req, res) => {
                 {
                     model: UserAvatar,
                     attributes: ['avatar']
+                },
+                {
+                    model: Profile
                 }
             ]
         }

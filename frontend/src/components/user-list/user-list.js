@@ -8,20 +8,24 @@ import { withKamkabelService } from '../hoc-helpers';
 import { fetchUsers, showModal } from '../../actions';
 import { compose } from '../../utils';
 
+import './user-list.css';
+
 
 const UserList = ({ users, onShowModalWindow }) => {
     return (
-        <ul>
-            {
-                users.map((user) => {
-                    return (
-                        <li key={user.id}>
-                            <UserItem user={ user } onShowModalWindow={ () => onShowModalWindow(user) }/>
-                        </li>
-                    );
-                })
-            }
-        </ul>
+        <div className="col-lg-10 col-sm-12">
+            <ul className="users-list">
+                {
+                    users.map((user) => {
+                        return (
+                            <li key={user.id}>
+                                <UserItem user={ user } onShowModalWindow={ () => onShowModalWindow(user.Profile) }/>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
     )
 }
 

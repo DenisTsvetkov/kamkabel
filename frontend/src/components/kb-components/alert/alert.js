@@ -13,7 +13,7 @@ class AlertBootstrap extends Component{
     componentDidUpdate(){
         setTimeout(()=>{
             this.props.onCloseAlert()
-        }, 4000)
+        }, 5000)
     }
 
     render() {

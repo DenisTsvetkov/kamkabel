@@ -20,5 +20,7 @@ module.exports = class User extends Sequelize.Model {
 
     static associate(models) {
         this.hasOne(models.UserAvatar);
+        this.hasMany(models.Message);
+        this.hasOne(models.Profile);
     }
 }

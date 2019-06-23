@@ -1,12 +1,16 @@
 const Sequelize = require("sequelize");
 
-module.exports = class Administrator extends Sequelize.Model {
+module.exports = class Profile extends Sequelize.Model {
     
     static init(sequelize, DataTypes) {
         return super.init(
             {
+                UserId: DataTypes.INTEGER,
                 name: DataTypes.STRING,
-                surname: DataTypes.STRING
+                middle_name: DataTypes.STRING,
+                surname: DataTypes.STRING,
+                phone: DataTypes.STRING,
+                sex: DataTypes.STRING
             },
             {
                 sequelize
@@ -16,9 +20,6 @@ module.exports = class Administrator extends Sequelize.Model {
     }
 
     static associate(models) {
-        this.hasOne(models.Avatar);
-        this.hasMany(models.Message);
-        this.hasOne(models.Auth_data);
-        this.hasMany(models.Notification);
+
     }
 }

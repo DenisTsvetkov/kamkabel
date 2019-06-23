@@ -13,31 +13,56 @@ const closeModal = () => {
     }
 }
 
-const sendMessage = (e, kamkabelService) => (dispatch) => {
+const sendMessage = (e, recipient, kamkabelService) => (dispatch) => {
     e.preventDefault();
 
     const textMsg = e.target[0].value;
 
     if(textMsg.length === 0){
-        dispatch({ type: SHOW_RESULT, payload: 'Сообщение пустое' })
+        //dispatch({ type: SHOW_RESULT, payload: 'Сообщение должно содержать текст' })
+        dispatch({
+            type: SHOW_ALERT,
+            payload: {
+                headerText: 'Новое сообщение',
+                text: 'Сообщеиие не должно быть пустым',
+                type: 'warning'
+            }
+        });
     }
     else{
-        kamkabelService.sendMessage(1, e.target[0].value)
+
+        const newMessages = {
+            'AdministratorId': 1,
+            'messeges': [
+                {
+                    'UserId': recipient.UserId,
+                    'text': textMsg
+                }
+            ]
+        }
+
+        kamkabelService.sendMessageToUser(newMessages.AdministratorId, newMessages.messeges)
         .then(res => {
-            console.log(res);
+            console.log('ОТПРАВИЛИ СООБЩЕНИЕ НА СЕРВЕР. ОТВЕТ ', res)
+            const { result, error } = res;
+
+            
             //dispatch({ type: SHOW_RESULT, payload: 'Сообщение успешно доставлено' })
-            setTimeout(()=>dispatch({ type: CLOSE_MODAL }), 500)
+            setTimeout(()=>dispatch({ type: CLOSE_MODAL }), 100)
             setTimeout(()=>{
                 dispatch({
                     type: SHOW_ALERT,
                     payload: {
                         headerText: 'Новое сообщение',
-                        text: 'Новое сообщение успешно отправлено',
-                        type: 'success'
+                        text: error ? `Во время отправки произошла ошибка \n ${error}` : 'Новое сообщение успешно отправлено',
+                        type: error ? 'danger' : 'success'
                     }
                 })
-            }, 1000)
+            }, 300)
             
+        })
+        .catch(error => {
+            console.log(error);
         })
     }
 

@@ -13,7 +13,7 @@ import { KamkabelServiceProvider } from './components/kamkabel-service-context';
 
 import store from './store';
 
-const KamkabelService = new DummyKamkabelApiService();
+const KamkabelService = new KamkabelApiService();
 //const DummyKamkabelService = new DummyKamkabelApiService();
 
 ReactDOM.render(
