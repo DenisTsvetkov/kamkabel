@@ -6,7 +6,10 @@ module.exports = class Auth_data extends Sequelize.Model {
         return super.init(
             {
                 AdministratorId: DataTypes.INTEGER,
-                login: DataTypes.STRING,
+                login: {
+                    type: DataTypes.STRING,
+                    unique: true
+                },
                 password: DataTypes.STRING
             },
             {

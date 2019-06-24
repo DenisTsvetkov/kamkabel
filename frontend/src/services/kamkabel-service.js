@@ -23,7 +23,10 @@ export default class KamkabelApiService {
       const body = await res.json();
       return body; 
     }
-  
+    
+    getServerDataExist = () => {
+      return true;
+    }
   
     getAllUsers = async () => {
       //return await this.getResource(`/users/`);
@@ -39,8 +42,22 @@ export default class KamkabelApiService {
       return await this.postResource(`/users/send-message`, { AdministratorId, messages })
     }
 
-    getServerDataExist = () => {
-      return true;
+    getAllAdministrators = async () => {
+      const { result } = await this.getResource('/administrators');
+      return result.administrators;
+    }
+
+    createAdministrator = async(name, surname, login, password) => {
+      try{
+        const createdAdmin =  await this.postResource('/administrators/create', { name, surname })
+        console.log('Создан админ: ', createdAdmin);
+      
+        const { id } = createdAdmin.result.administrator;
+        return await this.postResource('/administrators/auth-data/create', { AdministratorId: id, login, password })
+      }
+      catch(error){
+        return new Error(error)
+      }
     }
   
   }

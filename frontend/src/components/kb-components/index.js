@@ -1,9 +1,11 @@
-import Modal from './modal-send-message';
+import ModalSendMessage from './modal-send-message';
 import AlertBootstrap from './alert';
 import Form from './form';
+import Modal from './modal';
 
 export {
-    Modal,
+    ModalSendMessage,
     AlertBootstrap as Alert,
-    Form
+    Form,
+    Modal
 }

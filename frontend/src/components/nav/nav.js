@@ -21,7 +21,7 @@ const navItems = [
     border: []
   },
   {
-    url: '',
+    url: '/settings/',
     icon: <i className="fas fa-cogs"></i>,
     title: 'Настройки',
     border: [ 'top' ]

@@ -9,10 +9,11 @@ import Sidebar from '../sidebar';
 
 import {
   UsersPage,
-  LoginPage
+  LoginPage,
+  SettingsPage
 } from '../pages';
 
-import { Modal, Alert, Form } from '../kb-components';
+import { ModalSendMessage, Alert, Form } from '../kb-components';
 
 import { compose } from '../../utils';
 import { withKamkabelService } from '../hoc-helpers';
@@ -35,13 +36,14 @@ const App = (props) => {
                 <Header />
               </div>
               
-                <Modal />
+                <ModalSendMessage />
                 
                 <Switch>
                   <Route path="/"
                           render={() => <h2>Добро пожаловать в систему управления ботом мессенджера</h2>}
                           exact />
                   <Route path="/users" component={ UsersPage } />
+                  <Route path="/settings" component={ SettingsPage } />
                   <Route path="/login" component={ LoginPage } />
                   <Route render={() => <h2>Page not found</h2>} />
                 </Switch>

@@ -13,7 +13,7 @@ import './user-list.css';
 
 const UserList = ({ users, onShowModalWindow }) => {
     return (
-        <div className="col-lg-10 col-sm-12">
+        
             <ul className="users-list">
                 {
                     users.map((user) => {
@@ -25,7 +25,7 @@ const UserList = ({ users, onShowModalWindow }) => {
                     })
                 }
             </ul>
-        </div>
+
     )
 }
 

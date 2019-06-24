@@ -1,31 +1,52 @@
-const { Administrator, Avatar } = require('../models');
+const { Administrator, Avatar, Auth_data } = require('../models');
 
-exports.findAll = (req, res) => {
-    Administrator.findAll({
-        include: 
-            [
-                {
-                    model: Avatar,
-                    // as: 'Avatar'
-                }
-            ]
-        }
-    )
-    .then(administrators => {
-        res.status(200).json({ result: { administrators }, error: null })
-    })
-    .catch(error => {
-        res.status(404).json({ result: null, error })
-    })
+exports.findAll = async (req, res) => {
+    try{
+        const administrators = await Administrator.findAll({
+            include: 
+                [
+                    {
+                        model: Avatar,
+                        // as: 'Avatar'
+                    },
+                    {
+                        model: Auth_data
+                    }
+                ]
+            }
+        )
+        console.log('admins: ', administrators);
+        
+            res.status(200).json({ result: { administrators }, error: null })
+        
+    }
+    catch(error){
+        console.log('Произошла ошибка: ', error.message);
+    }
 }
 
-exports.create = ({ body: { name, surname } }, res) => {
+exports.create = async ({ body: { name, surname } }, res) => {
+    try{
+        const createdAdministrator = await Administrator.create({ name, surname })
+        if(createdAdministrator){
+            return res.status(200).json({ result: { administrator: createdAdministrator }, error: null })
+        }
+        return res.status(404).json({ result: null, error })
+    }
+    catch(error){
+        console.log('Произошла ошибка ', error);
+    }
+}
 
-    Administrator.create({ name, surname })
-    .then(administrator => {
-        res.status(200).json({ result: { administrator }, error: null })
-    })
-    .error(error => {
-        res.status(404).json({ result: null, error })
-    })
+exports.findByObjectField = async({ body: { field } }, res) => {
+    try{
+        const findAdministrator = await Administrator.findOne({ where: field })
+        if(findAdministrator){
+            return res.status(200).json({ result: { administrator: findAdministrator }, error: null })
+        }
+        return res.status(404).json({ result: null, error })
+    }
+    catch(error){
+        console.log('Произошла ошибка ', error);
+    }
 }

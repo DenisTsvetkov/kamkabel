@@ -41,7 +41,9 @@ import UserList from '../user-list';
 
 const UsersPage = () => {
   return (
-    <UserList />
+    <div className="col-lg-10 col-sm-12">
+      <UserList />
+    </div>
   )
 }
 
