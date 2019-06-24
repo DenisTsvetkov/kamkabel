@@ -1,4 +1,4 @@
-const { User, Message } = require('../models');
+const { User, Message, UserAvatar, Profile } = require('../models');
 const BotService = require('../services/bot-service');
 
 const TelegramBotService = new BotService();
@@ -61,3 +61,41 @@ exports.sendMessage = async (req, res) => {
     
 }
 
+
+exports.getAllMessagesByAdministratorId = async(req, res) => {
+    try{
+        const { AdministratorId } = req.body;
+        const messagesByAdmin = await Message.findAll({
+            where:{
+                AdministratorId
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ],
+            include: [
+                {
+                    model: User,
+                    include: [
+                        {
+                            model: UserAvatar,
+                            attributes: ['avatar']
+                        },
+                        {
+                            model: Profile,
+                            attributes: ['name', 'middle_name', 'surname']
+                        }
+                    ]
+                }
+                
+            ]
+        });
+        if(messagesByAdmin){
+            res.status(200).json({ result:{ messages:messagesByAdmin }, error:null })
+        }
+
+    }
+    catch(error){
+        console.log('Произошла ошибка: ', error);
+        res.status(200).json({ result:null, error: error.message });
+    }
+}

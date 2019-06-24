@@ -1,6 +1,7 @@
-import { SHOW_MODAL_ADD_ADMINISTRATOR, MODAL_CLOSE } from '../actions/action-types';
+import { SHOW_MODAL_ADD_ADMINISTRATOR, MODAL_CLOSE, SHOW_MODAL_SEND_MESSAGE_ALL } from '../actions/action-types';
 
 const modal = (state, action) => {
+    
     // show, config: { title }, inputs, onCloseModal, onSubmitForm
     if(state === undefined){
         return {
@@ -11,15 +12,16 @@ const modal = (state, action) => {
             inputs: []
         };
     }
+
+   
+
     switch(action.type){
         case SHOW_MODAL_ADD_ADMINISTRATOR:
-            const { onSubmitForm } = action.payload;
-            console.log('Ф', onSubmitForm);
             return {
                 show: true,
                 config: {
                     title: 'Добавление нового администратора',
-                    onSubmitForm: onSubmitForm
+                    onSubmitForm: action.payload.onSubmitForm
                 },
                 inputs: [
                     {
@@ -59,6 +61,28 @@ const modal = (state, action) => {
                     }
                 ]
             }
+        case SHOW_MODAL_SEND_MESSAGE_ALL:
+            console.log('SHOW_MODAL_SEND_MESSAGE_ALL')
+                return {
+                    show: true,
+                    config: {
+                        title: 'Отправить сообщение всем пользователям',
+                        onSubmitForm: action.payload.onSubmitForm
+                    },
+                    inputs: [
+                        {
+                            type: 'textarea',
+                            name: 'message',
+                            required: true,
+                            placeholder: 'Введите текст сообщения'
+                        },
+                        {
+                            type: 'submit',
+                            value: 'Отправить',
+                            variant: 'primary'
+                        }
+                    ]
+                }
         case MODAL_CLOSE:
             return {
                 show: false,

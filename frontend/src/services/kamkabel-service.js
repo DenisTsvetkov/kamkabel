@@ -59,5 +59,11 @@ export default class KamkabelApiService {
         return new Error(error)
       }
     }
+
+
+    getAllMessagesByAdministratorId = async (AdministratorId) => {
+      const { result } = await this.postResource(`/administrators/messages`, { AdministratorId })
+      return result.messages;
+    }
   
   }

@@ -10,7 +10,8 @@ import Sidebar from '../sidebar';
 import {
   UsersPage,
   LoginPage,
-  SettingsPage
+  SettingsPage,
+  MessagesPage
 } from '../pages';
 
 import { ModalSendMessage, Alert, Form } from '../kb-components';
@@ -44,6 +45,7 @@ const App = (props) => {
                           exact />
                   <Route path="/users" component={ UsersPage } />
                   <Route path="/settings" component={ SettingsPage } />
+                  <Route path="/messages" component={ MessagesPage } />
                   <Route path="/login" component={ LoginPage } />
                   <Route render={() => <h2>Page not found</h2>} />
                 </Switch>

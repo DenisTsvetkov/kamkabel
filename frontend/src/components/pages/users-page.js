@@ -35,15 +35,24 @@
 
 // export default UsersPage;
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import UserList from '../user-list';
-
+import UserSortPanel from '../user-sort-panel';
+import Modal from '../kb-components/modal';
 
 const UsersPage = () => {
   return (
-    <div className="col-lg-10 col-sm-12">
-      <UserList />
-    </div>
+    <Fragment>
+      {/* <div className="col-12">
+        <Modal />
+      </div> */}
+      <div className="col-lg-10 col-sm-12">
+        <UserList />
+      </div>
+      {/* <div className="col-lg-2 col-sm-12">
+        <UserSortPanel />
+      </div> */}
+    </Fragment>
   )
 }
 

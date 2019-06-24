@@ -3,6 +3,7 @@ import {
     MODAL_CLOSE,
     SHOW_ALERT,
     UPDATE_ADMINISTRATOR_LIST,
+    SHOW_MODAL_SEND_MESSAGE_ALL
     
 } from './action-types';
 
@@ -72,12 +73,24 @@ const createAdministrator =  (e, kamkabelService, AdministratorId) => async (dis
 
 
 
+
 export const showModalAddAdministrator = () => {
     return {
         type: SHOW_MODAL_ADD_ADMINISTRATOR,
         payload: { onSubmitForm : createAdministrator }
     }
 }
+
+export const showModalSendMessageAll = (kamkabelService) => async (dispatch) => {
+    console.log('Нажал')
+    console.log(kamkabelService);
+    dispatch({
+        type: SHOW_MODAL_SEND_MESSAGE_ALL,
+        payload: { onSubmitForm : createAdministrator }
+    })
+}
+
+
 
 export const myCloseModal = () => {
     return {

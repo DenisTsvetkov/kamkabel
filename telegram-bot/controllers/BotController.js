@@ -54,9 +54,19 @@ exports.start = async (ctx) => {
             throw new Error(JSON.stringify(createdProfile.error));
         }
 
-    
+        ctx.reply(`Здравствуйте ${ctx.message.from.first_name} ${ctx.message.from.last_name}. Вы успешно добавлены в систему`);
+
+        
     }
     catch(error){
         console.log(`Произошла ошибка: `, error.message);
+        if(error.message === '"Users_username_key"'){
+            ctx.reply(`Здравствуйте ${ctx.message.from.first_name} ${ctx.message.from.last_name}. Вы уже были добавлены в систему`);
+        }
+        else{
+            ctx.reply(`Здравствуйте ${ctx.message.from.first_name} ${ctx.message.from.last_name}. Произошла ошибка: ${error.message}`);
+        }
+        
+        
     }
 }

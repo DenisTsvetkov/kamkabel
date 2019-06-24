@@ -9,7 +9,7 @@ const navItems = [
     border: []
   },
   {
-    url: '/messegers/',
+    url: '/messages/',
     icon: <i className="fas fa-comments"></i>,
     title: 'Сообщение',
     border: []

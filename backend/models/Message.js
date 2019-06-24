@@ -19,5 +19,6 @@ module.exports = class Message extends Sequelize.Model {
     static associate(models) {
         // this.belongsTo(models.Administrator);
         // this.belongsTo(models.User);
+        this.belongsTo(models.User)
     }
 }

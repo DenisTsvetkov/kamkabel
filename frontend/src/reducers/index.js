@@ -5,6 +5,7 @@ import form from './form';
 import administratorList from './administrator-list';
 import modal from './modal';
 import administrator from './administrator';
+import messageList from './message-list';
 
 const reducer = (state, action) => {
     return {
@@ -14,7 +15,8 @@ const reducer = (state, action) => {
         form: form(state, action),
         administratorList: administratorList(state, action),
         modal: modal(state, action),
-        administrator: administrator(state, action)
+        administrator: administrator(state, action),
+        messageList: messageList(state, action)
     }
 }
 

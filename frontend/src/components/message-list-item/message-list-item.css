@@ -1,0 +1,9 @@
+.message-detail .message-text{
+    margin: 15px;
+}
+
+.message-created-date{
+    font-size: 14px;
+    font-style: italic;
+    color:#b2b2b2;
+}
