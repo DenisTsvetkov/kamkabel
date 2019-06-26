@@ -10,8 +10,11 @@ exports.findAll = async (req, res) => {
                         // as: 'Avatar'
                     },
                     {
-                        model: Auth_data
+                        model: Auth_data,
                     }
+                ],
+                order: [
+                    ['createdAt', 'ASC']
                 ]
             }
         )
